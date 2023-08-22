@@ -17,7 +17,7 @@
 :root {
   /* Layout */
   --mp-aside: 30rem;
-  
+
   /* Typography */
   --mp-font-family: "Caveat", cursive;
   --mp-font-weight-n: normal;
@@ -55,10 +55,20 @@ body {
   font-size: var(--mp-font-size-l);
   font-weight: var(--mp-font-weight-n);
 
+  background-color: var(--mp-background-color);
+  color: var(--mp-text-color);
+  
+  color-scheme: dark light;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    --mp-background-color: black;
+    --mp-text-color: white;
+  }
+}
 
 h1,
 h2,
