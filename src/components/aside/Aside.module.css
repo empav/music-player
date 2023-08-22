@@ -9,6 +9,13 @@
 
   overflow-x: auto;
   resize: horizontal;
+
+}
+
+@media (prefers-color-scheme: dark) {
+  .mpAside {
+    border-right: 1px solid var(--mp-text-color);
+  }
 }
 
 .mpLogo {
@@ -21,6 +28,17 @@
   align-items: center;
   gap: 2rem;
   margin-bottom: 3rem;
+
+  container-type: inline-size;
+}
+
+@supports (font-size: 1cqi) {
+  :is(.mpTitle) {
+    font-size: 10cqi;
+  }
+  :is(.mpLogo) {
+    height: 15cqi;
+  }
 }
 
 /* Covering generally all the mobile devices */
@@ -28,6 +46,7 @@
   .mpAside {
     min-width: 100%;
     box-shadow: none;
+    border: none;
     resize: unset;
     overflow-x: unset;
   }
