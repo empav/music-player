@@ -10,11 +10,14 @@
   overflow: hidden;
 
   cursor: pointer;
+
+  container-type: inline-size;
 }
 
 .mpSong:hover,
 .mpSong:focus {
   transform: scale(1.05);
+  box-shadow: var(--mp-box-shadow-light);
 }
 
 .mpSongSelected {
@@ -24,5 +27,17 @@
 }
 
 .mpCover {
-  height: 8rem;
+  height: 5rem;
+}
+
+@supports (font-size: 1cqi) {
+  :is(.mpCover) {
+    height: 20cqi;
+  }
+  :is(.mpName) {
+    font-size: 7cqi;
+  }
+  :is(.mpArtist) {
+    font-size: 5cqi;
+  }
 }

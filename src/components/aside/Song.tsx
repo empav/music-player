@@ -22,8 +22,8 @@ const Song = (props: Song) => {
     >
       <img src={cover} className={styles.mpCover} alt={id} />
       <div>
-        <h3>{name}</h3>
-        <p>{artist}</p>
+        <h3 className={styles.mpName}>{name}</h3>
+        <p className={styles.mpArtist}>{artist}</p>
       </div>
     </li>
   );
