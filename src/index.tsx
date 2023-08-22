@@ -1,7 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+
+import './fonts/Caveat-Regular.ttf';
+import './fonts/Caveat-SemiBold.ttf';
+
+import './index.module.css';
+
 import App from './App';
+
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(

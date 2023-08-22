@@ -1,0 +1,36 @@
+.mpApp {
+  display: grid;
+  grid-template-columns: 30rem 1fr;
+  min-height: 100vh;
+}
+
+.mpLogo {
+  height: 4rem;
+  pointer-events: none;
+}
+
+/* ASIDE MENU */
+.mpAside {
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: var(--mp-box-shadow);
+
+  padding: 2rem;
+
+  overflow-x: auto;
+  resize: horizontal;
+}
+
+.mpAsideHeader {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+/* MAIN CONTENT */
+.mpMain {
+  display: grid;
+  place-items: center;
+}

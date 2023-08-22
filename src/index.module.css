@@ -1,0 +1,93 @@
+/* Normalize CSS */
+@import-normalize;
+
+/* Defining and local hosting of Caveat font family */
+@font-face {
+  font-family: "Caveat";
+  src: local("Caveat"), url("./fonts/Caveat-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Caveat";
+  src: local("Caveat"), url("./fonts/Caveat-SemiBold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+:root {
+  /* Layout */
+  --mp-aside: 30rem;
+  
+  /* Typography */
+  --mp-font-family: "Caveat", cursive;
+  --mp-font-weight-n: normal;
+  --mp-font-weight-b: bold;
+  --mp-font-size-2xl: 3rem;
+  --mp-font-size-xl: 2.5rem;
+  --mp-font-size-l: 1.5rem;
+  --mp-font-size-m: 1rem;
+  --mp-font-size-s: 0.75rem;
+  --mp-font-size-xs: 0.5rem;
+
+  /* Backgrounds */
+  --mp-background-color: white;
+  --mp-text-color: black;
+
+  /* Shadows */
+  --mp-box-shadow: 0 25px 75px -12px rgb(0 0 0 / 0.25);
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--mp-font-family);
+  font-size: var(--mp-font-size-l);
+  font-weight: var(--mp-font-weight-n);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--mp-font-weight-b);
+}
+
+h1 {
+  font-size: var(--mp-font-size-2xl);
+}
+
+h2 {
+  font-size: var(--mp-font-size-xl);
+}
+
+h3 {
+  font-size: var(--mp-font-size-l);
+}
+
+h4 {
+  font-size: var(--mp-font-size-m);
+}
+
+h5 {
+  font-size: var(--mp-font-size-s);
+}
+
+h6 {
+  font-size: var(--mp-font-size-xs);
+}
+
+ul {
+  list-style-type: none;
+}
