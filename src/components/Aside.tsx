@@ -1,11 +1,9 @@
 import logo from "../logo.svg";
+import { useStore } from "../store";
 import styles from "./Aside.module.css";
 
-type AsideProps = {
-  songs: Song[];
-};
-
-export default function Aside({ songs }: AsideProps) {
+export default function Aside() {
+  const { songs } = useStore();
   return (
     <aside className={styles.mpAside}>
       <header className={styles.mpAsideHeader}>
@@ -13,7 +11,7 @@ export default function Aside({ songs }: AsideProps) {
         <h1>Library</h1>
       </header>
       <ul className={styles.mpAsideList}>
-        {songs.map((song) => (
+        {songs.map((song: Song) => (
           <li>{song.artist}</li>
         ))}
       </ul>

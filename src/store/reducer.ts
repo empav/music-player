@@ -4,7 +4,7 @@ const initialState: State = { songs: [] };
 
 const reducer = (state: State, action: Action) => {
   switch (action.type) {
-    case "INIT": {
+    case "LOAD_SONGS": {
       return {
         songs: getAllSongs(),
       };

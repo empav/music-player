@@ -1,20 +1,20 @@
-import { useEffect, useReducer } from "react";
+import { useEffect } from "react";
 import styles from "./App.module.css";
 import Aside from "./components/Aside";
 import Main from "./components/Main";
 
-import { reducer, initialState } from "./reducer";
+import { useDispatch } from "./store";
 
 export default function App() {
-  const [{ songs }, dispatch] = useReducer(reducer, initialState);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: "INIT" });
-  }, []);
-  
+    dispatch({ type: "LOAD_SONGS" });
+  }, [dispatch]);
+
   return (
     <div className={styles.mpApp}>
-      <Aside songs={songs} />
+      <Aside />
       <Main />
     </div>
   );
