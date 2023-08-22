@@ -1,7 +1,16 @@
+import { useEffect, useReducer } from "react";
 import logo from "./logo.svg";
 import styles from "./App.module.css";
 
+import { reducer, initialState } from "./reducer";
+
 function App() {
+  const [{ songs }, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    dispatch({ type: "INIT" });
+  }, []);
+
   return (
     <div className={styles.mpApp}>
       <aside className={styles.mpAside}>
@@ -10,11 +19,9 @@ function App() {
           <h1>Library</h1>
         </header>
         <ul className={styles.mpAsideList}>
-          <li>asdasasd</li>
-          <li>asdasasdasda</li>
-          <li>asdasasd</li>
-          <li>asdasasd</li>
-          <li>asdasdasd</li>
+          {songs.map((song) => (
+            <li>{song.artist}</li>
+          ))}
         </ul>
       </aside>
       <main className={styles.mpMain}>ciao</main>
