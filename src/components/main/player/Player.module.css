@@ -1,0 +1,47 @@
+.mpProgBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.mpVolume {
+  min-width: 5rem;
+  display: flex;
+  align-self: flex-end;
+  margin: 1rem 0;
+}
+
+.mpVolumeIcon {
+  width: 3rem;
+  height: 3rem;
+}
+
+.mpProgBarInput,
+.mpVolumeInput {
+  margin: 0 1rem;
+  width: 100%;
+  accent-color: var(--mp-color-primary);
+}
+
+.mpProgBarCurrTime,
+.mpProgBarDuration {
+  font-size: var(--mp-font-size-2xl);
+}
+
+.mpControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.mpControlsBtn {
+  cursor: pointer;
+  height: 4rem;
+  width: 4rem;
+}
+
+.mpControlsPause {
+  width: 100%;
+}

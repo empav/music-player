@@ -4,6 +4,23 @@
   place-items: center;
 }
 
+.mpCover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.mpCoverImg {
+  height: 20rem;
+  border-radius: 5rem;
+}
+
+.mpArtist {
+  margin: 2rem 0;
+  text-align: center;
+}
+
 /* Covering generally all the mobile devices */
 @media only screen and (max-width: 768px) {
   .mpMain {
