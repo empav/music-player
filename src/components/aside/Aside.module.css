@@ -26,7 +26,9 @@
 /* Covering generally all the mobile devices */
 @media only screen and (max-width: 768px) {
   .mpAside {
-    width: 100%;
+    min-width: 100%;
     box-shadow: none;
+    resize: unset;
+    overflow-x: unset;
   }
 }

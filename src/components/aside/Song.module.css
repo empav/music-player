@@ -23,7 +23,7 @@
 .mpSongSelected {
   transform: scale(1);
   background-color: var(--mp-color-primary);
-  color: white;
+  color: var(--mp-color-primary-inverted);
 }
 
 .mpCover {
@@ -32,7 +32,7 @@
 
 @supports (font-size: 1cqi) {
   :is(.mpCover) {
-    height: 20cqi;
+    height: 30cqi;
   }
   :is(.mpName) {
     font-size: 7cqi;

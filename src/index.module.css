@@ -39,6 +39,7 @@
 
   /* Colors */
   --mp-color-primary: #f97d67;
+  --mp-color-primary-inverted: white;
 }
 
 *,
