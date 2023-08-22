@@ -1,4 +1,4 @@
-import logo from "../logo.svg";
+import logo from "../images/logo.svg";
 import { useStore } from "../store";
 import styles from "./Aside.module.css";
 
