@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;
   gap: 2rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 /* Covering generally all the mobile devices */
@@ -28,6 +28,5 @@
   .mpAside {
     width: 100%;
     box-shadow: none;
-    align-items: center;
   }
 }

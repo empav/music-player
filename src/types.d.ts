@@ -12,6 +12,7 @@ type Song = {
 
 type State = {
   songs: Song[];
+  selected?: Song;
 };
 
 type Action = {

@@ -1,0 +1,28 @@
+.mpSong {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
+
+  border: 1px solid #eaeaea;
+  border-radius: 0.75rem;
+
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.mpSong:hover,
+.mpSong:focus {
+  transform: scale(1.05);
+}
+
+.mpSongSelected {
+  transform: scale(1);
+  background-color: var(--mp-color-primary);
+  color: white;
+}
+
+.mpCover {
+  height: 8rem;
+}

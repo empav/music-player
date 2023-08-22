@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./App.module.css";
-import Aside from "./components/Aside";
-import Main from "./components/Main";
+import Aside from "./components/aside/Aside";
+import Main from "./components/main/Main";
 
 import { useDispatch } from "./store";
 import Spinner from "./components/Spinner";

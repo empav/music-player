@@ -1,6 +1,7 @@
-import logo from "../images/logo.svg";
-import { useStore } from "../store";
+import logo from "../../images/logo.svg";
+import { useStore } from "../../store";
 import styles from "./Aside.module.css";
+import Song from "./Song";
 
 export default function Aside() {
   const { songs } = useStore();
@@ -12,7 +13,7 @@ export default function Aside() {
       </header>
       <ul className={styles.mpAsideList}>
         {songs.map((song: Song) => (
-          <li>{song.artist}</li>
+          <Song {...song} key={song.id} />
         ))}
       </ul>
     </aside>
