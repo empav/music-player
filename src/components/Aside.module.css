@@ -1,0 +1,33 @@
+/* ASIDE MENU */
+.mpAside {
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: var(--mp-box-shadow);
+
+  padding: 2rem;
+
+  overflow-x: auto;
+  resize: horizontal;
+}
+
+.mpLogo {
+  height: 4rem;
+  pointer-events: none;
+}
+
+.mpAsideHeader {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+/* Covering generally all the mobile devices */
+@media only screen and (max-width: 768px) {
+  .mpAside {
+    width: 100%;
+    box-shadow: none;
+    align-items: center;
+  }
+}
