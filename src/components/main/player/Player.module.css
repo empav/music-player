@@ -32,8 +32,16 @@
 .mpControls {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin: 1rem 0;
+
+  min-width: 20rem;
+}
+
+.mpControlsPrev,
+.mpControlsNext {
+  cursor: pointer;
+  font-size: var(--mp-font-size-2xl);
 }
 
 .mpControlsBtn {

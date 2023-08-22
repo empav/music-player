@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { useStore } from "../../../store";
+import { useDispatch, useStore } from "../../../store";
 import clsx from "clsx";
 import { BsPlay, BsSpeaker, BsPause } from "react-icons/bs";
+import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
 import styles from "./Player.module.css";
 
 const formatTime = (time: number) => {
@@ -19,6 +20,7 @@ export default function Player() {
   const {
     selected: { audio },
   } = useStore();
+  const dispatch = useDispatch();
 
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
@@ -42,6 +44,14 @@ export default function Player() {
   const handleProgressChange = () => {
     if (audioRef?.current && progressBarRef?.current) {
       audioRef.current.currentTime = Number(progressBarRef.current.value);
+    }
+  };
+
+  const handleNextPrev = (isNext: boolean) => () => {
+    if (isNext) {
+      dispatch({ type: "NEXT_SONG" });
+    } else {
+      dispatch({ type: "PREV_SONG" });
     }
   };
 
@@ -108,6 +118,10 @@ export default function Player() {
       </div>
 
       <div className={styles.mpControls}>
+        <MdSkipPrevious
+          className={styles.mpControlsPrev}
+          onClick={handleNextPrev(false)}
+        />
         {isPlaying ? (
           <BsPause
             onClick={togglePP}
@@ -119,6 +133,10 @@ export default function Player() {
             className={clsx(styles.mpControlsBtn, styles.mpControlsPlay)}
           />
         )}
+        <MdSkipNext
+          className={styles.mpControlsNext}
+          onClick={handleNextPrev(true)}
+        />
       </div>
 
       <div className={styles.mpVolume}>
