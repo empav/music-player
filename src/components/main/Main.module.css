@@ -19,6 +19,7 @@
 .mpArtist {
   margin: 2rem 0;
   text-align: center;
+  font-size: var(--mp-font-size-2xl);
 }
 
 /* Covering generally all the mobile devices */
