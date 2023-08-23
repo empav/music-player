@@ -36,7 +36,7 @@ export default function Player() {
     setVolume(Number(e.target.value));
   };
 
-  const toggleMutedVolume = (e: any) => {
+  const toggleMutedVolume = () => {
     if (volume === 0) {
       setVolume(60);
     } else {
@@ -114,7 +114,7 @@ export default function Player() {
   }, [volume]);
 
   return (
-    <>
+    <div className={styles.mpPlayer}>
       <audio
         src={audio}
         ref={audioRef}
@@ -177,6 +177,6 @@ export default function Player() {
           className={styles.mpVolumeInput}
         />
       </div>
-    </>
+    </div>
   );
 }

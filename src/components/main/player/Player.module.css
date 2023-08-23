@@ -1,8 +1,16 @@
+.mpPlayer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .mpProgBar {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+
+  container-type: inline-size;
 }
 
 .mpVolume {
@@ -36,6 +44,8 @@
   margin: 1rem 0;
 
   min-width: 40rem;
+
+  container-type: inline-size;
 }
 
 .mpControlsPrev,
@@ -46,4 +56,59 @@
 .mpControlsPlay {
   cursor: pointer;
   font-size: var(--mp-font-size-2xl);
+}
+
+/* Covering generally all the mobile devices */
+@media only screen and (max-width: 768px) {
+  .mpPlayer {
+    background-color: var(--mp-background-color);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 1.5rem;
+
+    box-shadow: var(--mp-box-shadow-top);
+  }
+  .mpControls {
+    margin: 0;
+    min-width: unset;
+    margin: 1rem 0;
+  }
+
+  .mpControlsPrev,
+  .mpControlsNext,
+  .mpControlsBack15,
+  .mpControlsForw15,
+  .mpControlsPause,
+  .mpControlsPlay {
+    font-size: var(--mp-font-size-xl);
+  }
+
+  .mpProgBarCurrTime,
+  .mpProgBarDuration {
+    font-size: var(--mp-font-size-xl);
+  }
+
+  @supports (font-size: 1cqi) {
+    :is(
+        .mpControlsPrev,
+        .mpControlsNext,
+        .mpControlsBack15,
+        .mpControlsForw15,
+        .mpControlsPause,
+        .mpControlsPlay
+      ) {
+      font-size: 10cqi;
+    }
+
+    :is(.mpProgBarCurrTime, .mpProgBarDuration) {
+      font-size: 7cqi;
+    }
+  }
+
+  .mpVolume {
+    display: none;
+  }
 }

@@ -36,6 +36,7 @@
   /* Shadows */
   --mp-box-shadow: 0 25px 45px -12px rgb(0 0 0 / 0.25);
   --mp-box-shadow-light: 0 25px 75px -12px rgb(0 0 0 / 0.15);
+  --mp-box-shadow-top: 0px 0px 0px 0px #d0cece, 0px 0px 20px 5px #d0cece;
 
   /* Colors */
   --mp-color-primary: #f97d67;
