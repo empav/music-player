@@ -8,7 +8,7 @@ describe("App", () => {
       .spyOn(window.HTMLMediaElement.prototype, "pause")
       .mockImplementation(() => {});
   });
-  test("renders correctly after spinner", async () => {
+  test("renders correctly after 4000ms of spinner time", async () => {
     renderWithProviders(<App />);
 
     await waitFor(
