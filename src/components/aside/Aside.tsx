@@ -8,6 +8,7 @@ export default function Aside() {
   const {
     state: { songs },
   } = React.useContext(AppContext);
+
   return (
     <aside className={styles.mpAside}>
       <header className={styles.mpAsideHeader}>

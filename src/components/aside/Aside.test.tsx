@@ -2,15 +2,10 @@
 import renderWithProviders from "../../utils/test-utils";
 import { screen } from "@testing-library/react";
 import Aside from "./Aside";
-import songs from "../../api/mocks";
 
 describe("Aside component", () => {
   test("renders correctly", async () => {
-    renderWithProviders(<Aside />, {
-      preloadedState: {
-        songs,
-      },
-    });
+    renderWithProviders(<Aside />);
 
     const label = await screen.findByText("Library");
 
