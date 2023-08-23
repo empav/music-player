@@ -13,6 +13,7 @@ export default function Main() {
           className={styles.mpCoverImg}
           alt={selected.id}
         />
+        <h1 className={styles.mpName}>{selected.name}</h1>
         <p className={styles.mpArtist}>{selected.artist}</p>
         <Player />
       </div>
