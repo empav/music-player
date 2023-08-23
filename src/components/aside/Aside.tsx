@@ -1,10 +1,13 @@
+import React from "react";
 import logo from "../../images/logo.svg";
-import { useStore } from "../../store";
 import styles from "./Aside.module.css";
 import Song from "./Song";
+import AppContext from "../../context";
 
 export default function Aside() {
-  const { songs } = useStore();
+  const {
+    state: { songs },
+  } = React.useContext(AppContext);
   return (
     <aside className={styles.mpAside}>
       <header className={styles.mpAsideHeader}>

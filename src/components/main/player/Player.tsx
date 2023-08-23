@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
-import { useDispatch, useStore } from "../../../store";
+import React, { useEffect, useRef, useState } from "react";
 import { BsPlay, BsPause } from "react-icons/bs";
 import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
 import { TbRewindForward15, TbRewindBackward15 } from "react-icons/tb";
 import { GiSpeaker, GiSpeakerOff } from "react-icons/gi";
 import styles from "./Player.module.css";
+import AppContext from "../../../context";
 
 const formatTime = (time: number) => {
   if (time && !Number.isNaN(time)) {
@@ -19,9 +19,9 @@ const formatTime = (time: number) => {
 
 export default function Player() {
   const {
-    selected: { audio },
-  } = useStore();
-  const dispatch = useDispatch();
+    state: { selected },
+    dispatch,
+  } = React.useContext(AppContext);
 
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
@@ -116,7 +116,7 @@ export default function Player() {
   return (
     <div className={styles.mpPlayer}>
       <audio
-        src={audio}
+        src={selected?.audio}
         ref={audioRef}
         onLoadedMetadata={handleMetadata}
         onEnded={() => {}}

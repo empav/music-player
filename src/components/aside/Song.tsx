@@ -1,12 +1,15 @@
-import { useCallback } from "react";
-import { useDispatch, useStore } from "../../store";
+import { useCallback, useContext } from "react";
 import styles from "./Song.module.css";
 import clsx from "clsx";
+import AppContext from "../../context";
 
 const Song = (props: Song) => {
   const { cover, artist, id, name } = props;
-  const { selected } = useStore();
-  const dispatch = useDispatch();
+  
+  const {
+    state: { selected },
+    dispatch,
+  } = useContext(AppContext);
 
   const handleClick = useCallback(() => {
     dispatch({ type: "SELECT_SONG", payload: { ...props } });
