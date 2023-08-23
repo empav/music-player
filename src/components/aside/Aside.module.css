@@ -9,7 +9,10 @@
 
   overflow-x: auto;
   resize: horizontal;
+}
 
+.mpAsideList {
+  padding-top: 2rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,7 +30,6 @@
   display: flex;
   align-items: center;
   gap: 2rem;
-  margin-bottom: 3rem;
 
   container-type: inline-size;
 }
@@ -49,5 +51,8 @@
     border: none;
     resize: unset;
     overflow-x: unset;
+
+    max-height: calc(100vh - 12rem);
+    overflow-y: auto;
   }
 }
