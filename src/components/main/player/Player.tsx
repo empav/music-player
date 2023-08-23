@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useStore } from "../../../store";
-import clsx from "clsx";
 import { BsPlay, BsSpeaker, BsPause } from "react-icons/bs";
 import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
+import { TbRewindForward15, TbRewindBackward15 } from "react-icons/tb";
 import styles from "./Player.module.css";
 
 const formatTime = (time: number) => {
@@ -52,6 +52,16 @@ export default function Player() {
       dispatch({ type: "NEXT_SONG" });
     } else {
       dispatch({ type: "PREV_SONG" });
+    }
+  };
+
+  const handleBackwardForward = (isForward: boolean) => () => {
+    if (audioRef?.current) {
+      if (isForward) {
+        audioRef.current.currentTime += 15;
+      } else {
+        audioRef.current.currentTime -= 15;
+      }
     }
   };
 
@@ -122,17 +132,25 @@ export default function Player() {
           className={styles.mpControlsPrev}
           onClick={handleNextPrev(false)}
         />
+        <TbRewindBackward15
+          className={styles.mpControlsBack15}
+          onClick={handleBackwardForward(false)}
+        />
         {isPlaying ? (
           <BsPause
             onClick={togglePP}
-            className={clsx(styles.mpControlsBtn, styles.mpControlsPause)}
+            className={styles.mpControlsPause}
           />
         ) : (
           <BsPlay
             onClick={togglePP}
-            className={clsx(styles.mpControlsBtn, styles.mpControlsPlay)}
+            className={styles.mpControlsPlay}
           />
         )}
+        <TbRewindForward15
+          className={styles.mpControlsForw15}
+          onClick={handleBackwardForward(true)}
+        />
         <MdSkipNext
           className={styles.mpControlsNext}
           onClick={handleNextPrev(true)}

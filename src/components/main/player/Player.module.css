@@ -35,21 +35,15 @@
   justify-content: space-between;
   margin: 1rem 0;
 
-  min-width: 20rem;
+  min-width: 40rem;
 }
 
 .mpControlsPrev,
-.mpControlsNext {
+.mpControlsNext,
+.mpControlsBack15,
+.mpControlsForw15,
+.mpControlsPause,
+.mpControlsPlay {
   cursor: pointer;
   font-size: var(--mp-font-size-2xl);
-}
-
-.mpControlsBtn {
-  cursor: pointer;
-  height: 4rem;
-  width: 4rem;
-}
-
-.mpControlsPause {
-  width: 100%;
 }
