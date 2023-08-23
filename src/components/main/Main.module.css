@@ -1,7 +1,8 @@
 /* MAIN CONTENT */
 .mpMain {
   display: grid;
-  place-items: center;
+  align-content: center;
+  justify-content: center;
 }
 
 .mpCover {
@@ -9,6 +10,7 @@
   flex-direction: column;
   align-items: center;
   width: 50%;
+  min-width: 50rem;
 }
 
 .mpCoverImg {
@@ -25,9 +27,10 @@
   margin-bottom: 3rem;
 }
 
+
 /* Covering generally all the mobile devices */
 @media only screen and (max-width: 768px) {
-  .mpMain {
+  .mpCover {
     display: none;
   }
 }

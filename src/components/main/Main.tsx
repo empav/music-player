@@ -15,8 +15,8 @@ export default function Main() {
         />
         <h1 className={styles.mpName}>{selected.name}</h1>
         <p className={styles.mpArtist}>{selected.artist}</p>
-        <Player />
       </div>
+      <Player />
     </main>
   );
 }
