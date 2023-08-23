@@ -5,7 +5,7 @@ import AppContext from "../../context";
 
 const Song = (props: Song) => {
   const { cover, artist, id, name } = props;
-  
+
   const {
     state: { selected },
     dispatch,
@@ -23,7 +23,12 @@ const Song = (props: Song) => {
       )}
       onClick={handleClick}
     >
-      <img src={cover} className={styles.mpCover} alt={id} />
+      <img
+        data-testid={id}
+        src={cover}
+        className={styles.mpCover}
+        alt={`${name}-${artist}`}
+      />
       <div>
         <h3 className={styles.mpName}>{name}</h3>
         <p className={styles.mpArtist}>{artist}</p>
