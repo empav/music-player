@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useStore } from "../../../store";
-import { BsPlay, BsSpeaker, BsPause } from "react-icons/bs";
+import { BsPlay, BsPause } from "react-icons/bs";
 import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
 import { TbRewindForward15, TbRewindBackward15 } from "react-icons/tb";
+import { GiSpeaker, GiSpeakerOff } from "react-icons/gi";
 import styles from "./Player.module.css";
 
 const formatTime = (time: number) => {
@@ -33,6 +34,14 @@ export default function Player() {
 
   const handleVolume = (e: any) => {
     setVolume(Number(e.target.value));
+  };
+
+  const toggleMutedVolume = (e: any) => {
+    if (volume === 0) {
+      setVolume(60);
+    } else {
+      setVolume(0);
+    }
   };
 
   const handleMetadata = () => {
@@ -137,15 +146,9 @@ export default function Player() {
           onClick={handleBackwardForward(false)}
         />
         {isPlaying ? (
-          <BsPause
-            onClick={togglePP}
-            className={styles.mpControlsPause}
-          />
+          <BsPause onClick={togglePP} className={styles.mpControlsPause} />
         ) : (
-          <BsPlay
-            onClick={togglePP}
-            className={styles.mpControlsPlay}
-          />
+          <BsPlay onClick={togglePP} className={styles.mpControlsPlay} />
         )}
         <TbRewindForward15
           className={styles.mpControlsForw15}
@@ -158,7 +161,13 @@ export default function Player() {
       </div>
 
       <div className={styles.mpVolume}>
-        <BsSpeaker className={styles.mpVolumeIcon} />
+        <span onClick={toggleMutedVolume}>
+          {volume > 0 ? (
+            <GiSpeaker className={styles.mpVolumeIcon} />
+          ) : (
+            <GiSpeakerOff className={styles.mpVolumeIcon} />
+          )}
+        </span>
         <input
           type="range"
           min={0}
