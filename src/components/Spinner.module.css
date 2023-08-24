@@ -6,6 +6,7 @@
 
 .mpSpinnerImg {
   height: 4rem;
+  border-radius: 50%;
 }
 
 @keyframes spin {
