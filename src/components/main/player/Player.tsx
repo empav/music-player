@@ -100,12 +100,15 @@ export default function Player() {
         progressBarRef?.current &&
         playAnimationRef?.current
       ) {
-        const currentTime = audioRef.current.currentTime;
+        
+        const currentTime = audioRef.current.currentTime as number;
         setCurrentTime(currentTime);
+        
+        const rangeProgress = (currentTime / duration) * 100;
         progressBarRef.current.value = String(currentTime);
         progressBarRef.current.style.setProperty(
           "--range-progress",
-          `${(Number(progressBarRef.current.value) / duration) * 100}%`
+          `${rangeProgress}%`
         );
 
         playAnimationRef.current = requestAnimationFrame(repeat);
@@ -146,6 +149,8 @@ export default function Player() {
           type="range"
           ref={progressBarRef}
           defaultValue="0"
+          min={0}
+          max={duration}
           onChange={handleProgressChange}
         />
         <span className={styles.mpProgBarDuration}>{formatTime(duration)}</span>
