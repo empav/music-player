@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import clsx from "clsx";
 import { BsPlay, BsPause } from "react-icons/bs";
 import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
 import { TbRewindForward15, TbRewindBackward15 } from "react-icons/tb";
 import { GiSpeaker, GiSpeakerOff } from "react-icons/gi";
+import { FaRandom } from "react-icons/fa";
 import styles from "./Player.module.css";
 import AppContext from "../../../context";
 
@@ -27,6 +29,7 @@ export default function Player() {
   const [duration, setDuration] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [volume, setVolume] = useState<number>(60);
+  const [isRandom, setIsRandom] = useState<boolean>(false);
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const progressBarRef = useRef<HTMLInputElement>(null);
@@ -41,6 +44,18 @@ export default function Player() {
       setVolume(60);
     } else {
       setVolume(0);
+    }
+  };
+
+  const toggleRandom = () => {
+    setIsRandom((prev) => !prev);
+  };
+
+  const handleSongsHasEnded = () => {
+    if (isRandom) {
+      dispatch({ type: "RANDOM_SONG" });
+    } else {
+      setIsPlaying(false);
     }
   };
 
@@ -119,7 +134,7 @@ export default function Player() {
         src={selected?.audio}
         ref={audioRef}
         onLoadedMetadata={handleMetadata}
-        onEnded={() => {}}
+        onEnded={handleSongsHasEnded}
       />
 
       <div className={styles.mpProgBar}>
@@ -138,36 +153,54 @@ export default function Player() {
 
       <div className={styles.mpControls}>
         <MdSkipPrevious
-          className={styles.mpControlsPrev}
+          className={clsx(styles.mpControlsIcon, styles.mpControlsPrev)}
           onClick={handleNextPrev(false)}
         />
         <TbRewindBackward15
-          className={styles.mpControlsBack15}
+          className={clsx(styles.mpControlsIcon, styles.mpControlsBack15)}
           onClick={handleBackwardForward(false)}
         />
         {isPlaying ? (
-          <BsPause onClick={togglePP} className={styles.mpControlsPause} />
+          <BsPause
+            onClick={togglePP}
+            className={clsx(styles.mpControlsIcon, styles.mpControlsPause)}
+          />
         ) : (
-          <BsPlay onClick={togglePP} className={styles.mpControlsPlay} />
+          <BsPlay
+            onClick={togglePP}
+            className={clsx(styles.mpControlsIcon, styles.mpControlsPlay)}
+          />
         )}
         <TbRewindForward15
-          className={styles.mpControlsForw15}
+          className={clsx(styles.mpControlsIcon, styles.mpControlsForw15)}
           onClick={handleBackwardForward(true)}
         />
         <MdSkipNext
-          className={styles.mpControlsNext}
+          className={clsx(styles.mpControlsIcon, styles.mpControlsNext)}
           onClick={handleNextPrev(true)}
         />
       </div>
 
-      <div className={styles.mpVolume}>
-        <span onClick={toggleMutedVolume}>
-          {volume > 0 ? (
-            <GiSpeaker className={styles.mpVolumeIcon} />
-          ) : (
-            <GiSpeakerOff className={styles.mpVolumeIcon} />
+      <div className={styles.mpExtra}>
+        <FaRandom
+          onClick={toggleRandom}
+          className={clsx(
+            styles.mpControlsIcon,
+            styles.mpRandom,
+            isRandom && styles.mpFill
           )}
-        </span>
+        />
+        {volume > 0 ? (
+          <GiSpeaker
+            onClick={toggleMutedVolume}
+            className={clsx(styles.mpControlsIcon, styles.mpVolumeIcon)}
+          />
+        ) : (
+          <GiSpeakerOff
+            onClick={toggleMutedVolume}
+            className={clsx(styles.mpControlsIcon, styles.mpVolumeIcon)}
+          />
+        )}
         <input
           type="range"
           min={0}

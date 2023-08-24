@@ -49,6 +49,18 @@ const reducer = (state: State, action: Action) => {
         selected,
       };
     }
+    case "RANDOM_SONG": {
+      let random = Math.floor(Math.random() * state.songs.length);
+      let selected = state.songs[0];
+      if (state.selected?.id !== state.songs[random].id) {
+        selected = state.songs[random];
+      }
+
+      return {
+        ...state,
+        selected,
+      };
+    }
     default:
       throw Error("Unknown action: " + action.type);
   }

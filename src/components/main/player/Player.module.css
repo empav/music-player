@@ -13,20 +13,28 @@
   container-type: inline-size;
 }
 
-.mpVolume {
-  min-width: 5rem;
+.mpExtra {
   display: flex;
-  align-self: flex-end;
+  align-items: center;
+  justify-content: flex-end;
   margin: 1rem 0;
+  gap: 1rem;
 }
 
-.mpVolumeIcon {
-  width: 3rem;
-  height: 3rem;
+.mpRandom {
+  width: 2rem;
+  height: 2rem;
 }
 
-.mpProgBarInput,
 .mpVolumeInput {
+  accent-color: var(--mp-color-primary);
+}
+
+.mpFill {
+  fill: var(--mp-color-primary);
+}
+
+.mpProgBarInput {
   margin: 0 1rem;
   width: 100%;
   accent-color: var(--mp-color-primary);
@@ -48,12 +56,7 @@
   container-type: inline-size;
 }
 
-.mpControlsPrev,
-.mpControlsNext,
-.mpControlsBack15,
-.mpControlsForw15,
-.mpControlsPause,
-.mpControlsPlay {
+.mpControlsIcon {
   cursor: pointer;
   font-size: var(--mp-font-size-2xl);
 }
@@ -77,12 +80,7 @@
     margin: 1rem 0;
   }
 
-  .mpControlsPrev,
-  .mpControlsNext,
-  .mpControlsBack15,
-  .mpControlsForw15,
-  .mpControlsPause,
-  .mpControlsPlay {
+  .mpControlsIcon {
     font-size: var(--mp-font-size-xl);
   }
 
@@ -92,23 +90,12 @@
   }
 
   @supports (font-size: 1cqi) {
-    :is(
-        .mpControlsPrev,
-        .mpControlsNext,
-        .mpControlsBack15,
-        .mpControlsForw15,
-        .mpControlsPause,
-        .mpControlsPlay
-      ) {
+    :is(.mpControlsIcon) {
       font-size: 10cqi;
     }
 
     :is(.mpProgBarCurrTime, .mpProgBarDuration) {
       font-size: 7cqi;
     }
-  }
-
-  .mpVolume {
-    display: none;
   }
 }
